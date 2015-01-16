@@ -1,0 +1,5 @@
+#* @implicitly included *#
+#* @vtlvariable name="webResourceManager" type="com.atlassian.plugin.webresource.WebResourceManager" *#
+#* @vtlvariable name="textutils" type="com.opensymphony.util.TextUtils" *#
+#* @vtlvariable name="action" type="cz.sefira.jira.wltransfer.actions.TransferWorklogs" *#
+#* @vtlvariable name="i18n" type="com.atlassian.sal.api.message.I18nResolver" *#

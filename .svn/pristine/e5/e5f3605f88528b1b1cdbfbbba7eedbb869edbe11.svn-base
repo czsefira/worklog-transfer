@@ -1,0 +1,54 @@
+label.header.transfer=P\u0159esunout z\u00E1pis pr\u00E1ce
+label.common.cancel=Zru\u0161it
+label.common.submit=Odeslat
+label.available.worklogs=Dostupn\u00E9 z\u00E1pisy pr\u00E1ce
+label.available.worklogs.description=Vyberte z\u00E1pisy, kter\u00E9 budou p\u0159esunuty do jin\u00E9ho \u00FAkolu
+label.available.workers=Dostupn\u00ED \u0159e\u0161itel\u00E9
+label.available.workers.description=V tabulce n\u00ED\u017Ee filtruje pouze z\u00E1pisy dan\u00E9ho u\u017Eivatele
+label.destination.project=P\u0159esunout do projektu
+label.destination.project.description=Projekt obsahuj\u00EDc\u00ED \u00FAkol, do kter\u00E9ho maj\u00ED b\u00FDt z\u00E1pisy p\u0159esunuty
+label.destination.issuegroup=\u00DAkoly u\u017Eivatele
+label.destination.issuegroup.description=Vyfiltruje pouze \u00FAkoly p\u0159id\u011Blen\u00E9 dan\u00E9mu u\u017Eivateli
+label.destination.issue=P\u0159esunout do \u00FAkolu
+label.destination.issue.description=\u00DAkol, do kter\u00E9ho maj\u00ED b\u00FDt z\u00E1pisy p\u0159esunuty.
+label.destination.issuestatus=Stav \u00FAkolu
+label.destination.issuestatus.description=Vyfiltruje pouze \u00FAkoly v dan\u00E9m stavu
+label.estimate=P\u0159epo\u010D\u00EDtat odhad
+label.estimate.description=Upravit p\u016Fvodn\u00ED odhad nam\u00EDsto odhadu zb\u00FDvaj\u00EDc\u00EDho
+label.check.all=Ozna\u010Dit v\u0161e
+label.loading.issues=Prob\u00EDh\u00E1 na\u010D\u00EDt\u00E1n\u00ED z\u00E1pis\u016F...
+label.help.recount=N\u00E1pov\u011Bda pro p\u0159epo\u010Dten\u00ED odhadu
+label.datepicker.from=Od
+label.datepicker.to=Do
+
+label.table.header.timeworked=Odpracov\u00E1no
+label.table.header.name=Jm\u00E9no
+label.table.header.date=Datum
+label.table.header.comment=Koment\u00E1\u0159
+label.table.header.transfer=P\u0159esunout
+
+select.all=v\u0161e
+select.option.select.issue=Vyberte \u00FAkol
+select.option.no.issues=Nenalezen \u017E\u00E1dn\u00FD \u00FAkol
+select.option.no.worklogs=Nenalezen \u017E\u00E1dn\u00FD z\u00E1pis pr\u00E1ce
+select.issuestatus.open=Pouze neuzav\u0159en\u00E9
+select.issuestatus.closed=Pouze uzav\u0159en\u00E9
+
+errors.validation.no.worklog=Nen\u00ED vybr\u00E1n \u017E\u00E1dn\u00FD z\u00E1pis pr\u00E1ce
+errors.validation.no.issue=Nen\u00ED vybr\u00E1n \u017E\u00E1dn\u00FD platn\u00FD \u00FAkol
+errors.validation.delete.own=Nem\u00E1te pr\u00E1va k p\u0159esunu vlastn\u00EDch z\u00E1pis\u016F
+errors.validation.delete.others=Nem\u00E1te pr\u00E1va k p\u0159esunu z\u00E1pis\u016F ostatn\u00EDch u\u017Eivatel\u016F
+errors.validation.log.work=U\u017Eivatel {0} nem\u00E1 pr\u00E1va k z\u00E1pisu pr\u00E1ce do zvolen\u00E9ho \u00FAkolu
+
+help.header.main=P\u0159epo\u010Det odhadovan\u00E9ho \u010Dasu
+help.content.intro=P\u0159i p\u0159esunu z\u00E1pisu m\u00E1te dv\u011B mo\u017Enosti, jak upravit odhadovan\u00FD \u010Das na v\u00FDchoz\u00EDm i c\u00EDlov\u00E9m \u00FAkolu\
+  , a to bu\u010F p\u0159epo\u010D\u00EDtat (dojde ke zm\u011Bn\u011B p\u016Fvodn\u00EDho odhadu) nebo nep\u0159epo\u010D\u00EDt\u00E1vat (dojde ke zm\u011Bn\u011B zb\u00FDvaj\u00EDc\u00EDho odhadu).
+help.header.recount=P\u0159epo\u010D\u00EDtat
+help.header.notrecount=Nep\u0159epo\u010D\u00EDt\u00E1vat
+help.content.recount=V p\u0159\u00EDpad\u011B p\u0159epo\u010D\u00EDt\u00E1n\u00ED dojde ke sn\u00ED\u017Een\u00ED p\u016Fvodn\u00EDho odhadu na v\u00FDchoz\u00EDm \u00FAkolu o celkovou sumu \
+  odpracovan\u00E9ho \u010Dasu p\u0159esouvan\u00FDch z\u00E1pis\u016F a k nav\u00FD\u0161en\u00ED p\u016Fvodn\u00EDho odhadu o stejn\u00FD \u010Dasov\u00FD objem na c\u00EDlov\u00E9m \u00FAkolu. \
+  Zb\u00FDvaj\u00EDc\u00ED odhad z\u016Fst\u00E1v\u00E1 nezm\u011Bn\u011Bn. K tomuto sc\u00E9n\u00E1\u0159i doch\u00E1z\u00ED nap\u0159. kdy\u017E p\u0159esouvan\u00E1 pr\u00E1ce nem\u011Bla b\u00FDt p\u016Fvodn\u011B v \
+  odhadu v\u00FDchoz\u00EDho \u00FAkolu v\u016Fbec zapo\u010Dtena a naopak m\u011Bla b\u00FDt odhadnuta v \u00FAkolu c\u00EDlov\u00E9m.
+help.content.notrecount=V p\u0159\u00EDpad\u011B nep\u0159epo\u010Dten\u00ED dojde k nav\u00FD\u0161en\u00ED zb\u00FDvaj\u00EDc\u00EDho odhadu na v\u00FDchoz\u00EDm \u00FAkolu o celkovou sumu \
+  odpracovan\u00E9ho \u010Dasu p\u0159esouvan\u00FDch z\u00E1pis\u016F a ke sn\u00ED\u017Een\u00ED zb\u00FDvaj\u00EDc\u00EDho odhadu o stejn\u00FD \u010Dasov\u00FD objem na c\u00EDlov\u00E9m \u00FAkolu. \
+  P\u016Fvodn\u00ED odhad z\u016Fst\u00E1v\u00E1 nezm\u011Bn\u011Bn. K tomuto (b\u011B\u017En\u011Bj\u0161\u00EDmu) sc\u00E9n\u00E1\u0159i doch\u00E1z\u00ED nap\u0159. kdy\u017E do\u0161lo k z\u00E1pisu p\u0159esouvan\u00E9 pr\u00E1ce do nespr\u00E1vn\u00E9ho \u00FAkolu.

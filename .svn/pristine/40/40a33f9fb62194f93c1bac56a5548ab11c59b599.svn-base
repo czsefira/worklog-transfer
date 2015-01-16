@@ -1,0 +1,271 @@
+#macro(dateTimePopup $inputId $inputButton)
+<script language="javascript" >
+  Calendar.setup({
+    firstDay : 1,
+    inputField : '$inputId',
+    button : '$inputButton',
+    align : 'Br',
+    singleClick : true,
+    showsTime : true,
+    useISO8601WeekNumbers : false,
+    ifFormat : '%d.%m.%Y %H:%M'
+  });
+</script>
+#end
+
+#if($action.isInlineDialogMode())
+  <h2 class="dialog-title">$i18n.getText('label.header.transfer')</h2>
+#else
+  #parse("templates/header.vm")
+#end
+<form class="aui" action="TransferWorklogs.jspa" id="wlt-form" method="post">
+  #if(!$action.isInlineDialogMode())
+    <h2 class="dialog-title">$i18n.getText('label.header.transfer')</h2>
+  #end
+  <input type="hidden" name="id" value="$action.id"/>
+
+  <div class="form-body">
+    <div class="content">
+
+      #if ($action.hasAnyErrors())
+        <div class="form-message error">
+          #foreach ($error in $action.getErrorMessages())
+            <p>$error</p>
+          #end
+          <p>$!action.errors.selectWorklogs</p>
+        </div>
+      #end
+
+##     New date picker form
+      <div>
+      <label>$i18n.getText('label.datepicker.from')</label>
+      <input class="text medium-field datepicker-input" id="from" name="from" type="text" />
+      <a href="#" id="from_trigger">
+        <span class="aui-icon icon-date">Select Dates</span>
+      </a>
+      #dateTimePopup("from" "from_trigger")
+       </div>
+
+      <div>
+      <label>$i18n.getText('label.datepicker.to')</label>
+      <input class="text medium-field datepicker-input" id="to" name="to" type="text" />
+      <a href="#" id="to_trigger">
+        <span class="aui-icon icon-date">Select Dates</span>
+      </a>
+      #dateTimePopup("to" "to_trigger")
+      </div>
+
+
+      <div class="description">$i18n.getText('label.available.workers.description')</div>
+      </div>
+
+      <table width="700">
+        <tr>
+          <td>
+            <table class="aui" width="670">
+              <thead>
+              <tr>
+                <th style="width: 20px"><input type="checkbox" id="wlt-checkall" title="$i18n.getText("label.check.all")"/></th>
+                <th style="width: 120px">$i18n.getText('label.table.header.name')</th>
+                <th style="width: 100px">$i18n.getText('label.table.header.date')</th>
+                <th style="width: 100px">$i18n.getText('label.table.header.timeworked')</th>
+                <th style="width: 185px">$i18n.getText('label.table.header.comment')</th>
+              </tr>
+              </thead>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="aui" style="height:120px; width:670px; overflow:auto;">
+              <table class="aui worklogs-table" width="300">
+                <thead style="visibility: collapse; border-bottom: none;">
+                <tr>
+                  <th id="checked" style="width: 20px"></th>
+                  <th id="name" style="width: 120px"></th>
+                  <th id="date" style="width: 100px"></th>
+                  <th id="timeworked" style="width: 100px"></th>
+                  <th id="commentary" style="width: 155px"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td colspan='5'>$i18n.getText("label.loading.issues")</td>
+                <tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="hidden">
+        <input type="hidden" value="" name="selectWorklogs" id="wlt-selectWorklogs">
+      </div>
+
+      <div class="border-bottom"></div>
+
+      <div class="field-group">
+        <label>$i18n.getText('label.destination.project') <span class="aui-icon icon-required"></span></label>
+        <select id="wlt-selectProject" name="selectProject" class="select">
+          #foreach( $project in $action.getProjects() )
+            <option value="$project.getId()">$project.getName() ($project.getKey())</option>
+          #end
+        </select>
+
+        <div class="description">$i18n.getText('label.destination.project.description')</div>
+      </div>
+
+      <div class="field-group">
+        <label>$i18n.getText('label.destination.issuestatus') <span class="aui-icon icon-required"></span></label>
+        <select id="wlt-selectIssueStatus" name="selectIssueStatus" class="select">
+          <option value="">$i18n.getText('select.all')</option>
+          <option value="open">$i18n.getText('select.issuestatus.open')</option>
+          <option value="closed">$i18n.getText('select.issuestatus.closed')</option>
+        </select>
+
+        <div class="description">$i18n.getText('label.destination.issuestatus.description')</div>
+      </div>
+
+      <div class="field-group">
+        <label>$i18n.getText('label.destination.issuegroup') <span class="aui-icon icon-required"></span></label>
+        <select id="wlt-selectIssueGroup" name="selectIssueGroup" class="select">
+          <option value="">$i18n.getText('select.all')</option>
+          #foreach( $worker in $action.getEmployees() )
+            <option value="$worker.getName()">$worker.getDisplayName()</option>
+          #end
+        </select>
+
+        <div class="description">$i18n.getText('label.destination.issuegroup.description')</div>
+      </div>
+
+      <div class="field-group">
+        <label>$i18n.getText('label.destination.issue') <span class="aui-icon icon-required"></span></label>
+        <select id="wlt-selectIssue" name="selectIssue" class="select">
+        </select>
+
+        <div class="error">$!action.errors.selectIssue</div>
+        <div class="description">$i18n.getText('label.destination.issue.description')</div>
+      </div>
+
+      <div class="field-group">
+        <label>$i18n.getText('label.estimate')</label>
+        <input id="wlt-checkboxEstimate" type="checkbox" name="estimate" class="checkbox"/>
+        <a class="localHelp"
+           onclick="var child = window.open('$req.contextPath/secure/TransferWorklogsHelp.jspa?decorator=popup', 'jiraLocalHelp', 'width=900, height=500, resizable, scrollbars=yes'); child.focus(); return false;"
+           href="$req.contextPath/secure/TransferWorklogsHelp.jspa?decorator=popup">
+          <img width="16" height="16" align="absmiddle" title="$i18n.getText('label.help.recount')" src="/jira/images/icons/ico_help.png">
+        </a>
+        <div class="description">$i18n.getText('label.estimate.description')</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="buttons-container form-footer">
+    <div class="buttons">
+      <a href="$action.returnUrlForCancelLink" class="cancel">$i18n.getText('label.common.cancel')</a>
+      <input class="button" type="submit" value="$i18n.getText('label.common.submit')"/>
+    </div>
+  </div>
+</form>
+
+<!---------------------------------------------------JS---------------------------------------------------------------->
+
+<script type="text/javascript">
+
+  jQuery(document).ready( function() {
+    if (!$action.inlineDialogMode)
+      document.title = '$i18n.getText("label.header.transfer") ' + document.title;
+  });
+
+  jQuery('#wlt-form').submit(function () {
+    var hidden = jQuery('#wlt-selectWorklogs');
+    hidden.val('');
+    jQuery.each(jQuery('td.wlt-checkbox input:checked'), function (idx, val) {
+      hidden.val(hidden.val() + val.id.replace('wlt-checkbox', '') + ',');
+    });
+  });
+
+  function wlt_retrieveIssues() {
+    var issueGroup = jQuery("#wlt-selectIssueGroup option:selected").val();
+    var issueStatus = jQuery("#wlt-selectIssueStatus option:selected").val();
+    jQuery.ajax({
+      url:'$req.contextPath/rest/api/2/search?jql=project=' + jQuery("#wlt-selectProject option:selected").val() +
+          (issueGroup == '' ? '' : '+and+assignee=' + issueGroup) +
+          (issueStatus == '' ? '' : '+and+status' + (issueStatus == 'open' ? '!' : '') + '=closed') + '+order+by+key&fields=summary&maxResults=1000'
+    }).done(function (msg) {
+          var issueSelect = jQuery('#wlt-selectIssue');
+          issueSelect.html('');
+          jQuery.each(msg.issues, function (idx, val) {
+            issueSelect.append(jQuery("<option></option>")
+                .attr("value", val.id)
+                .text(val.key + ' - ' + val.fields.summary));
+          });
+          if (issueSelect.html() == '') issueSelect.append(jQuery("<option></option>")
+              .attr("value", "-1")
+              .text('$i18n.getText('select.option.no.issues')'));
+          else issueSelect.prepend(jQuery("<option></option>")
+              .attr("value", "-1")
+              .text('$i18n.getText('select.option.select.issue')'));
+          jQuery("#wlt-selectIssue").val($action.getSelectIssue());
+        });
+  }
+
+  function wlt_changeWorkerHandler() {
+    wlt_retrieveWorklogs();
+    jQuery("#wlt-selectIssueGroup").val(jQuery("#wlt-selectWorker option:selected").val());
+    jQuery('#wlt-checkall').attr('checked', false);
+    wlt_retrieveIssues();
+  }
+
+  function wlt_retrieveWorklogs() {
+    jQuery.ajax({
+      url:'$req.contextPath/rest/restworklogs/1.0/worklogs?issuekey=$action.getIssueObject().getKey()' +
+          '&username=' + jQuery("#wlt-selectWorker option:selected").val()
+    }).done(function (msg) {
+          var body = jQuery('.worklogs-table tbody');
+          body.html('');
+          var row;
+          jQuery.each(msg.worklogs, function (idx, val) {
+            row = jQuery('<tr><td class="wlt-checkbox" headers="checked"><input type="checkbox" class="wlt-checkbox" id="wlt-checkbox' + val.id +
+                '"></td><td headers="name">' + val.authorFullName + '</td><td headers="date">' + val.startDate +
+                '</td><td headers="timeworked">' + val.timeSpent + '</td><td headers="commentary">' +
+                val.comment + '</tr>');
+            body.append(row);
+          });
+          if (body.html() == '') body.append(jQuery("<tr><td colspan='5'>" + '$i18n.getText("select.option.no.worklogs")' + "</td><tr>"));
+          //check previously selected worklogs in case of error
+          jQuery.each($action.getSelectWorklogs(), function (idx, val) {
+            jQuery('#wlt-checkbox' + val).attr('checked', true);
+          });
+        });
+  }
+
+  //check after error if checked previously
+  jQuery('#wlt-checkboxEstimate').attr('checked', $action.getCheckboxEstimate());
+  //select the source worker selected previously or self
+  jQuery("#wlt-selectWorker").val('$action.getSelectWorker()');
+  //retrieve worklogs and check previously checked ones
+  wlt_retrieveWorklogs();
+  //set the handler to load worklogs dynamically and change default target issue assignee
+  jQuery("#wlt-selectWorker").change(wlt_changeWorkerHandler);
+  //select the destination project selected previously or the current project
+  jQuery("#wlt-selectProject").val('$action.getSelectProject()');
+  //select the issueGroup selected previously or self
+  jQuery("#wlt-selectIssueGroup").val('$action.getSelectIssueGroup()');
+  //select the issueStatus selected previously or all
+  jQuery("#wlt-selectIssueStatus").val('$action.getSelectIssueStatus()');
+  wlt_retrieveIssues();
+  jQuery("#wlt-selectProject").change(wlt_retrieveIssues);
+  jQuery("#wlt-selectIssueGroup").change(wlt_retrieveIssues);
+  jQuery("#wlt-selectIssueStatus").change(wlt_retrieveIssues);
+
+  jQuery('#wlt-checkall').change(function () {
+    var check = jQuery('#wlt-checkall:checked').val() ? true : false;
+    jQuery('input.wlt-checkbox').attr('checked', check);
+  });
+
+</script>
+
+###customControlFooter($action $customField.id "description" $displayParameters $auiparams)

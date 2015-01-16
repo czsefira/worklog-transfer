@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.atlassian.plugins:atlassian-plugins-webresource-api:3.0.0-m24">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/plugins/atlassian-plugins-webresource-api/3.0.0-m24/atlassian-plugins-webresource-api-3.0.0-m24.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/plugins/atlassian-plugins-webresource-api/3.0.0-m24/atlassian-plugins-webresource-api-3.0.0-m24-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/plugins/atlassian-plugins-webresource-api/3.0.0-m24/atlassian-plugins-webresource-api-3.0.0-m24-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

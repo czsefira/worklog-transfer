@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.atlassian.activeobjects:activeobjects-spi:0.23.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-spi/0.23.2/activeobjects-spi-0.23.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-spi/0.23.2/activeobjects-spi-0.23.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-spi/0.23.2/activeobjects-spi-0.23.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

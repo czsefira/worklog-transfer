@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.atlassian.oauth:atlassian-oauth-api:1.9.0-m3">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/oauth/atlassian-oauth-api/1.9.0-m3/atlassian-oauth-api-1.9.0-m3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/oauth/atlassian-oauth-api/1.9.0-m3/atlassian-oauth-api-1.9.0-m3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/oauth/atlassian-oauth-api/1.9.0-m3/atlassian-oauth-api-1.9.0-m3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

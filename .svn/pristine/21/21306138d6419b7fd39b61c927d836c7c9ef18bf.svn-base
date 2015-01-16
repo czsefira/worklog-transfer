@@ -1,0 +1,17 @@
+$webResourceManager.requireResource("cz.sefira.jira.worklog-transfer:wlt-web-resources")
+<div id="page">
+
+<section id="content" role="main">
+
+<div class="content-container">
+<div class="content-body aui-panel transfer-help">
+
+  <h2>$i18n.getText("help.header.main")</h2>
+  <div>$i18n.getText("help.content.intro")</div>
+  <h3>$i18n.getText("help.header.recount")</h3>
+  <div>$i18n.getText("help.content.recount")</div>
+  <h3>$i18n.getText("help.header.notrecount")</h3>
+  <div>$i18n.getText("help.content.notrecount")</div>
+
+</section>
+</div>

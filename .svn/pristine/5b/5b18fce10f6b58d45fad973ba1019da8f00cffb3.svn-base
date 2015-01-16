@@ -1,0 +1,52 @@
+label.header.transfer=Transfer Worklogs
+label.common.cancel=Cancel
+label.common.submit=Submit
+label.available.worklogs=Available worklogs
+label.available.worklogs.description=Select the worklogs that should be transferred
+label.available.workers=Available assignees
+label.available.workers.description=Filters only selected assignee''s worklogs in this issue
+label.destination.project=Transfer to project
+label.destination.project.description=Project that contains the target issue
+label.destination.issuegroup=Assignee''s issues
+label.destination.issuegroup.description=Filters only issues assigned to the picked assignee
+label.destination.issue=Transfer to issue
+label.destination.issue.description=Target issue for the selected worklogs
+label.destination.issuestatus=Issue status
+label.destination.issuestatus.description=Filters only issues in the selected state
+label.estimate=Re-count estimates
+label.estimate.description=Adjust the original estimate instead of the remaining estimate
+label.check.all=Select all
+label.loading.issues=Loading worklogs...
+label.help.recount=Help for estimate re-counting
+label.datepicker.from=From
+label.datepicker.to=To
+
+label.table.header.timeworked=Time spent
+label.table.header.name=Name
+label.table.header.date=Date
+label.table.header.comment=Comment
+label.table.header.transfer=Transfer
+
+select.all=all
+select.option.select.issue=Select the issue
+select.option.no.issues=No issues found
+select.option.no.worklogs=No worklogs found
+select.issuestatus.open=Not Closed
+select.issuestatus.closed=Closed only
+
+errors.validation.no.worklog=No worklog is selected
+errors.validation.no.issue=No issue is selected
+errors.validation.delete.own=You do not have sufficient permissions to transfer your own worklogs.
+errors.validation.delete.others=You do not have sufficient permissions to transfer selected worklogs.
+errors.validation.log.work=User {0} cannot log work in the selected issue.
+
+help.header.main=Re-counting estimates
+help.content.intro=There are two ways to recount estimated time using Worklog Transfer plugin both in the source and target issue.
+help.header.recount=Re-count estimates
+help.header.notrecount=Do not re-count estimates
+help.content.recount=If re-counting is selected, the original estimate on the source issue will be decreased by the sum of the logged times of the transferred worklogs. \
+  The original estimate of the target issue will be increased by the same amount of time. Both remaining estimates are kept unchanged. \
+  This scenario might occur if the transferred work shouldn''t have been estimated at all in the source issue and should have been estimated in the target issue originally.
+help.content.notrecount=If re-counting is not selected, the remaining estimate on the source issue will be increased by the sum of the logged times of the transferred worklogs. \
+  The remaining estimate of the target issue will be decreased by the same amount of time. Both original estimates are kept unchanged. \
+  This (more frequent) scenario occurs when the work has been logged in a wrong issue.

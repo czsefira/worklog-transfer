@@ -1,0 +1,14 @@
+<header>
+
+  <div id="heading-avatar">
+    <img width="48" height="48" src="/jira/secure/projectavatar?pid=$action.issueObject.projectObject.id&amp;avatarId=$action.issueObject.projectObject.avatar.id&amp;size=large" class="project-avatar-48" alt="" id="project-avatar">
+  </div>
+
+  <ul class="breadcrumbs">
+    <li><a href="${req.contextPath}/browse/$action.issueObject.projectObject.key" id="project-name-val">$action.issueObject.projectObject.name</a></li>
+
+    <li><a href="${req.contextPath}/browse/$action.issueObject.key" rel="10402" id="key-val">$action.issueObject.key</a></li>
+  </ul>
+  <h1><a href="${req.contextPath}/browse/$action.issueObject.key">$action.issueObject.summary</a></h1>
+
+</header>

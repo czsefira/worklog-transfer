@@ -1,0 +1,53 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+    <param name="vendor-icon">images/sefiraIcon.png</param>
+    <param name="vendor-logo">images/sefiraLogo.png</param>
+  </plugin-info>
+
+  <resource type="i18n" name="i18n" location="cz.sefira.jira.wltransfer.wltransfer"/>
+
+  <web-item key="worklog.transfer.webitem" name="Worklog Transfer Web Item"
+            section="operations-work" weight="11">
+    <condition class="cz.sefira.jira.wltransfer.UserCanLogWorkCondition"/>
+    <label key="label.header.transfer"/>
+    <link linkId="transfer-worklogs">/secure/TransferWorklogs!default.jspa?id=$!{issue.id}</link>
+    <context-provider class="cz.sefira.jira.wltransfer.ContextProvider"/>
+  </web-item>
+
+  <web-resource name="AUI Popup JavaScript Resource" key="wlt-aui-popup-resources">
+    <resource name="wlt-popup.js" type="download" location="/includes/js/wlt-popup.js"/>
+    <context>atl.general</context>
+  </web-resource>
+
+  <web-resource name="Web Resources" key="wlt-web-resources">
+    <resource name="wlt-styles.css" type="download" location="/includes/css/wlt-styles.css"/>
+  </web-resource>
+
+  <webwork1 key="worklog.transfer.actions" name="Worklog Transfer Actions" class="java.lang.Object">
+    <actions>
+      <action name="cz.sefira.jira.wltransfer.actions.TransferWorklogs" alias="TransferWorklogs">
+        <view name="input">/templates/wltransfer-dialog.vm</view>
+      </action>
+      <action name="cz.sefira.jira.wltransfer.actions.TransferWorklogsHelp" alias="TransferWorklogsHelp">
+        <view name="success">/templates/wltransfer-help.vm</view>
+      </action>
+    </actions>
+  </webwork1>
+
+  <rest key="worklogsRest" name="Worklog Restful Service" path="/restworklogs" version="1.0">
+    <description>Provides worklogs rest services.</description>
+    <package>cz.sefira.jira.wltransfer.rest</package>
+  </rest>
+
+  <component key="worklog-service" name="Worklog Service"
+             class="cz.sefira.jira.wltransfer.services.WLTransferServiceImpl">
+    <description>Provides worklogs data.</description>
+  </component>
+
+</atlassian-plugin>

@@ -1,0 +1,9 @@
+.border-bottom {
+    border-bottom: 1px solid #BBBBBB;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.transfer-help * {
+    margin-bottom: 10px;
+}
